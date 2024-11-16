@@ -13,16 +13,16 @@ import com.truemen.api.guide.model.Guide;
 import com.truemen.api.guide.service.GuideService;
 
 @RestController
-@RequestMapping("/api/guides")
+@RequestMapping("/api/v1/guides")
 public class GuideController {
 
     @Autowired
     private GuideService guideService;
 
     // 查看某个具体攻略
-    @GetMapping("/{id}")
-    public Guide getGuide(@PathVariable Long id) {
-        return guideService.getGuideById(id);
+    @GetMapping("/{guideId}")
+    public Guide getGuide(@PathVariable("guideId") Long guideId) {
+        return guideService.getGuideById(guideId);
     }
 
     // 编辑某个具体攻略

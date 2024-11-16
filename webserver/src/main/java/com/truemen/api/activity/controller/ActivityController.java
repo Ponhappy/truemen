@@ -27,7 +27,7 @@ public class ActivityController {
     }
 
     @GetMapping("/{activityId}")
-    public ResponseEntity<Activity> getActivityById(@PathVariable Long activityId) {
+    public ResponseEntity<Activity> getActivityById(@PathVariable("activityId") Long activityId) {
         Activity activity = activityService.getActivityById(activityId);
         return activity != null ? ResponseEntity.ok(activity) : ResponseEntity.notFound().build();
     }
