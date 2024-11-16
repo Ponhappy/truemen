@@ -46,8 +46,7 @@ Page({
   selectTag: function(e) {
     console.log(e);
     const id = e.currentTarget.dataset.id;
-    const tag=this.data.hobbies[id].name;
-    console.log(tag)
+    const tag=this.data.hobbies[id-1].name;
     if (!this.data.selectedTags.includes(tag)) {
       this.setData({
         selectedTags: [...this.data.selectedTags, tag]

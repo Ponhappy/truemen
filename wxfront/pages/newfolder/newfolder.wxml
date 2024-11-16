@@ -1,0 +1,3 @@
+<!--pages/newfolder/newfolder.wxml-->
+<text class="css">pages/newfolder/newfolder.wxml{{val}}</text>
+<button bindtap="sendPostRequest">发送POST请求</button>

@@ -1,0 +1,46 @@
+<!--pages/strategy/strategy-detail/strategy-detail.wxml-->
+<view class="container">
+  <!-- 左侧图片 -->
+  <view class="view1">
+    <view class="left-module">
+      <image class="left-image" src="/images/register/register.png" mode="aspectFill"></image>
+    </view>
+
+    <!-- 右侧模块 -->
+    <view class="right-module">
+      <view class="title">
+        <view class="strategy-name" >攻略名1
+          
+        </view>
+        <image class="star-image" src="/images/icons/Star.png" mode="aspectFill"></image>
+      </view>
+
+    <view class="flex-tag">
+          <block wx:for="{{tags}}" wx:key="*this">
+            <view class="tag" wx:for-item="tag">{{tag}}</view>
+        </block>
+    </view>
+
+    <view class="location-days">
+            <view>{{spots_nums}}景点，{{days}}天</view>
+        </view>
+
+  </view>
+
+
+
+  </view>
+  <view class="strategy-review">
+    <text class="long-textbox">攻略简介</text>
+  </view>
+</view>
+<view style="width: 100%; background: #d1d1d1; height: 100px">
+
+  </view>
+<button type="primary">按钮主操作</button>
+
+
+
+
+
+

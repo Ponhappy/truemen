@@ -1,7 +1,6 @@
 {
-  "navigationBarTitleText": "修改标签",
   "usingComponents": {},
-  "enablePullDownRefresh": false,
+  "navigationBarTitleText": "编辑档案",
   "navigationBarBackgroundColor": "#fff",
   "navigationBarTextStyle": "black",
   "navigationStyle": "default",

@@ -1,0 +1,9 @@
+/* pages/newfolder/newfolder.wxss */
+.css{
+  color: red;
+  width: Hug (72px)px;
+height: Hug (26px)px;
+gap: 4px;
+
+
+}

@@ -16,7 +16,10 @@
     "pages/index/search-content/search-content",
     "pages/myself/user-profile/user-profile",
     "pages/myself/edit-myself/edit-myself",
-    "pages/myself/page-modify-tags/page-modify-tags"
+    "pages/myself/page-modify-tags/page-modify-tags",
+    "pages/strategy/strategy-detail",
+    "pages/strategy/strategy-detail/strategy-detail",
+    "pages/newfolder/newfolder"
   ],
   "window": {
     "navigationBarTextStyle": "black",
