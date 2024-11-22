@@ -129,16 +129,51 @@ CREATE TABLE `groups` (
 -- Table structure for table `landmark`
 --
 
-
---
+-- 创建 guides 表
 DROP TABLE IF EXISTS `guides`;
-CREATE TABLE guides (
-     id INT AUTO_INCREMENT PRIMARY KEY, -- 自增主键
-     title VARCHAR(255) NOT NULL,       -- 攻略名称
-     description TEXT NOT NULL,          -- 攻略介绍
-     type VARCHAR(50) NOT NULL,          -- 攻略类型
-     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- 创建时间
-);
+CREATE TABLE `guides` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY COMMENT '自增主键',
+    `title` VARCHAR(255) NOT NULL COMMENT '攻略名称',
+    `description` TEXT NOT NULL COMMENT '攻略介绍',
+    `type` VARCHAR(50) NOT NULL COMMENT '攻略类型',
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间'
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
+
+-- 创建 Guide_tags 表
+DROP TABLE IF EXISTS `Guide_tags`;
+CREATE TABLE `Guide_tags` (
+    `Guide_id` INT NOT NULL COMMENT '攻略ID',
+    `tags` VARCHAR(255) COMMENT '标签',
+    FOREIGN KEY (`Guide_id`) REFERENCES `guides`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+-- 创建 Day 表
+DROP TABLE IF EXISTS `Day`;
+CREATE TABLE `Day` (
+    `id` BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '自增主键',
+    `dayNumber` INT NOT NULL COMMENT '天数'
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
+
+-- 创建 Guide_days 表
+DROP TABLE IF EXISTS `Guide_days`;
+CREATE TABLE `Guide_days` (
+    `Guide_id` INT NOT NULL COMMENT '攻略ID',
+    `days_id` BIGINT NOT NULL COMMENT '天数ID',
+    FOREIGN KEY (`Guide_id`) REFERENCES `guides`(`id`) ON DELETE CASCADE,
+    FOREIGN KEY (`days_id`) REFERENCES `Day`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+-- 创建 Day_landmarks 表
+DROP TABLE IF EXISTS `Day_landmarks`;
+CREATE TABLE `Day_landmarks` (
+    `Day_id` BIGINT NOT NULL COMMENT '天数ID',
+    `landmarks_id` BIGINT NOT NULL COMMENT '地标ID',
+    FOREIGN KEY (`Day_id`) REFERENCES `Day`(`id`) ON DELETE CASCADE,
+    FOREIGN KEY (`landmarks_id`) REFERENCES `landmark`(`landmarkId`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+
+
 DROP TABLE IF EXISTS `post`;
 CREATE TABLE `post` (
   `postId` bigint NOT NULL AUTO_INCREMENT COMMENT '帖子ID',
@@ -160,6 +195,7 @@ CREATE TABLE `post` (
   CONSTRAINT `post_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `usercoreinfo` (`uid`) ON UPDATE CASCADE,
   CONSTRAINT `post_ibfk_2` FOREIGN KEY (`landmarkId`) REFERENCES `landmark` (`landmarkId`) ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
+
 
 -- Table structure for table `comment`
 --
@@ -798,3 +834,32 @@ VALUES
 (6, 3),
 (7, 1),
 (8, 3);
+
+-- 插入 guides 表数据
+INSERT INTO `guides` (`title`, `description`, `type`) VALUES
+('中山大学南校园一日游', '探索中山大学南校园的历史建筑和学术氛围', '校园游'),
+('广州历史文化之旅', '游览广州的历史文化地标', '历史文化');
+
+-- 插入 Guide_tags 表数据
+INSERT INTO `Guide_tags` (`Guide_id`, `tags`) VALUES
+(1, '中山大学'),
+(1, '校园游'),
+(2, '广州'),
+(2, '历史文化');
+
+-- 插入 Day 表数据
+INSERT INTO `Day` (`dayNumber`) VALUES
+(1),
+(1);
+
+-- 插入 Guide_days 表数据
+INSERT INTO `Guide_days` (`Guide_id`, `days_id`) VALUES
+(1, 1),
+(2, 2);
+
+-- 插入 Day_landmarks 表数据
+INSERT INTO `Day_landmarks` (`Day_id`, `landmarks_id`) VALUES
+(1, 1), -- 中山大学南校园一日游，包含怀士堂
+(1, 2), -- 中山大学南校园一日游，包含马丁堂
+(2, 5), -- 广州历史文化之旅，包含孙中山铜像
+(2, 6); -- 广州历史文化之旅，包含图书馆
