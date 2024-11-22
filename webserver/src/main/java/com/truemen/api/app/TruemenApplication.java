@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @EnableTransactionManagement
-@ComponentScan(basePackages = {"com.truemen.api.common", "com.truemen.api.post", "com.truemen.api.guide"})
+@ComponentScan(basePackages = {"com.truemen.api.common", "com.truemen.api.post", "com.truemen.api.guide", "com.truemen.api.landmark", "com.truemen.api.user"})
 @MapperScan("com.truemen.api.guide.repository")
 public class TruemenApplication {
     public static void main(String[] args) {
