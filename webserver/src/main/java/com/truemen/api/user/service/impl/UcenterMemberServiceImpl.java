@@ -8,12 +8,14 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import com.truemen.api.user.model.UcenterMember;
 import com.truemen.api.user.service.UcenterMemberService;
 
 @Service
+@Primary
 public class UcenterMemberServiceImpl implements UcenterMemberService {
 
     @Autowired
