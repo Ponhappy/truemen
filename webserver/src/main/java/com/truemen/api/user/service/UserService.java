@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Service
+@Service("userUserService")
 public class UserService {
     private static final Logger logger = LoggerFactory.getLogger(UserService.class);
 
