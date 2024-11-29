@@ -4,7 +4,6 @@
     "pages/index/index",
     "pages/strategy/strategy",
     "pages/activity/activity",
-    "pages/friend/friend",
     "pages/myself/myself",
     "pages/login/login",
     "pages/register/register",
@@ -12,16 +11,29 @@
     "pages/register/phone-register/phone-register",
     "pages/register/wechat-register/wechat-register",
     "pages/login/other-phone-login/other-phone-login",
-    "pages/friend/friend-chat/friend-chat",
     "pages/index/search-content/search-content",
     "pages/myself/user-profile/user-profile",
     "pages/myself/edit-myself/edit-myself",
-    "pages/myself/page-modify-tags/page-modify-tags"
+    "pages/myself/page-modify-tags/page-modify-tags",
+    "pages/friend/chat",
+    "pages/login/password-login/password-login"
+  ],
+  "subPackages": [
+    {
+      "root": "TUI-CustomerService",
+      "name": "TUI-CustomerService",
+      "pages": [
+        "pages/index"
+      ],
+      "independent": false
+    }
   ],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
   },
+  "style": "v2",
+  "renderer": "webview",
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",
   "tabBar": {
@@ -40,7 +52,7 @@
         "pagePath": "pages/index/index"
       },
       {
-        "pagePath": "pages/friend/friend"
+        "pagePath": "pages/friend/chat"
       },
       {
         "pagePath": "pages/myself/myself"

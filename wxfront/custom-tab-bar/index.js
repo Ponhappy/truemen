@@ -7,7 +7,7 @@ Component({
     list: [
       {
         pagePath: "/pages/strategy/strategy",
-        text: "攻略路线",
+        text: "攻略",
         iconPath: "../images/icons/icon_strategy.png",
         selectedIconPath: "../images/icons/icon_strategy_light.png",
         color: "#000000",
@@ -30,7 +30,7 @@ Component({
         selectedColor: "#C8102E",
       },
       {
-        pagePath: "/pages/friend/friend",
+        pagePath: "pages/friend/chat",
         text: "好友",
         iconPath: "../images/icons/icon_friend.png",
         selectedIconPath: "../images/icons/icon_friend_light.png",
@@ -39,7 +39,7 @@ Component({
       },
       {
         pagePath: "/pages/myself/myself",
-        text: "个人主页",
+        text: "我的",
         iconPath: "../images/icons/icon_myself.png",
         selectedIconPath: "../images/icons/icon_myself.png",
         color: "#000000",
