@@ -31,5 +31,7 @@
     "ignore": [],
     "include": []
   },
-  "appid": "wxf15109d6152eeee8"
+  "appid": "wxf15109d6152eeee8",
+  "projectname": "wxfront",
+  "libVersion": "3.5.6"
 }
