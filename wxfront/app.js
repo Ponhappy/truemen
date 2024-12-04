@@ -1,6 +1,16 @@
 // app.js
+import TencentCloudChat from '@tencentcloud/chat';
+import TIMUploadPlugin from 'tim-upload-plugin';
+import TIMProfanityFilterPlugin from 'tim-profanity-filter-plugin';
+import { genTestUserSig } from './debug/GenerateTestUserSig';
 App({
   globalData: {
+    config: {
+      userID: 'Testing', 
+      SECRETKEY: 'f18419ace7c3df5cca41a8f140d30dd82538faee15016fab677c0b0fa9ad1f36',
+      SDKAPPID: 1600060054, 
+      EXPIRETIME: 604800,
+    },
     host: 'http://localhost:8080',
     // host: 'http://abc.com',// 域名
     navBarHeight: 0, // 导航栏高度
@@ -75,5 +85,27 @@ App({
     this.globalData.searchMarginTop = statusBarHeight + margin // 状态栏 + 胶囊按钮边距
     this.globalData.searchHeight = height // 与胶囊按钮同高
     this.globalData.searchWidth = right - width - 20 // 胶囊按钮右边坐标 - 胶囊按钮宽度 = 按钮左边可使用宽度
+    wx.$TUIKit = TencentCloudChat.create({
+      SDKAppID: this.globalData.config.SDKAPPID,
+    });
+    const userSig = genTestUserSig(this.globalData.config).userSig 
+    wx.$chat_SDKAppID = this.globalData.config.SDKAPPID;
+    wx.TencentCloudChat = TencentCloudChat;
+    wx.$chat_userID = this.globalData.config.userID;
+    wx.$chat_userSig = userSig;
+    wx.$TUIKit.registerPlugin({ 'tim-upload-plugin': TIMUploadPlugin });
+    wx.$TUIKit.registerPlugin({ 'tim-profanity-filter-plugin': TIMProfanityFilterPlugin });
+    wx.$TUIKit.login({
+      userID: this.globalData.config.userID,
+      userSig
+  });
+    // 监听系统级事件
+    wx.$TUIKit.on(wx.TencentCloudChat.EVENT.SDK_READY, this.onSDKReady,this);    
   },
+  onUnload() {
+    wx.$TUIKit.off(wx.TencentCloudChat.EVENT.SDK_READY, this.onSDKReady,this);
+  },
+  onSDKReady(event) {
+    // 监听到此事件后可调用 SDK 发送消息等 API，使用 SDK 的各项功能。
+  }
 })

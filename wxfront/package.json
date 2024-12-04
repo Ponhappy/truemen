@@ -7,8 +7,10 @@
   },
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "appid:\twxf15109d6152eeee8   \r secret:\t2fc8fd2874ae9f831bab0b13c301840b\r # 前端启动\r 安装微信开发者工具。         \r 具体见飞书文档。    \r 主页面是index.wxml  \r # 前端微信小程序发布\r 去微信小程序发布的官网发布，通过审核之后即可使用   \r https://blog.csdn.net/Aurora_1970s/article/details/116976483 \r # 前端改动\r 2024年10月5日",
   "dependencies": {
+    "@tencentcloud/chat-uikit-wechat": "^2.2.7",
+    "@tencentcloud/react-native-push": "^0.3.1",
     "@vant/weapp": "^1.11.6"
   }
 }
