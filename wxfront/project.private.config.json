@@ -10,6 +10,10 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/newfolder/newfolder",
+          "pathName": "pages/newfolder/newfolder",
+        },
+        {
           "name": "TUI-CustomerService\\pages\\index",
           "pathName": "TUI-CustomerService/pages/index",
           "query": "",
@@ -17,7 +21,25 @@
           "scene": null
         },
         {
-          "name": "pages/friend/chat",
+          "name": "pages/newfolder/newfolder",
+          "pathName": "pages/newfolder/newfolder",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/strategy/strategy-detail",
+          "pathName": "pages/strategy/strategy-detail/strategy-detail",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/myself/page-modify-tags/page-modify-tags",
+          "pathName": "pages/myself/page-modify-tags/page-modify-tags",
+        },
+        {
+          "name": "pages/friend/chat",      
           "pathName": "pages/friend/chat",
           "query": "",
           "launchMode": "default",

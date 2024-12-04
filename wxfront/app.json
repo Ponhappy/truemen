@@ -15,6 +15,9 @@
     "pages/myself/user-profile/user-profile",
     "pages/myself/edit-myself/edit-myself",
     "pages/myself/page-modify-tags/page-modify-tags",
+    "pages/strategy/strategy-detail",
+    "pages/strategy/strategy-detail/strategy-detail",
+    "pages/newfolder/newfolder",
     "pages/friend/chat",
     "pages/login/password-login/password-login"
   ],

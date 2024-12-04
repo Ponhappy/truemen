@@ -90,7 +90,9 @@
     <view class="white-card current-me">
       <view class="current-me-line">
         <text class="current-me-title">现在的我</text>
+        <navigator url="/pages/myself/page-modify-tags/page-modify-tags" hover-class="navigator-hover" bindtap="navigateToTagsEditPage" class="edit">
         <image  src="/images/icons/edit.png" class="edit" />
+      </navigator>
       </view>
       <!-- <view class="tag-group"> -->
         <view wx:for="{{ tags }}" wx:key="index">

@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "攻略详情",
+    "usingComponents": {},
+    "enablePullDownRefresh": false,
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "default",
+    "renderer": "cover-view"
+}
