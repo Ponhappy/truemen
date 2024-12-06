@@ -1,0 +1,50 @@
+<wxs src="/utils/isSelected.wxs" module="utils"></wxs>
+<view class="filter-container">
+  <view class="filter-header">
+    <button bindtap="clearSelection">清空</button>
+    <button bindtap="confirmSelection">完成</button>
+  </view>
+  <view class="title">只看</view>
+  <view class="filter-content">
+    <view class="filter-section {{utils.isSelected(selected.onlySee, item) ? 'selected' : ''}}" 
+            wx:for="{{filterData.onlySee}}" 
+            wx:key="*this" 
+            data-category="onlySee" 
+            data-option="{{item}}" 
+            bindtap="toggleSelection">
+        {{item}}
+      </view>
+
+    <view class="title">类型</view>
+    <view class="filter-section {{utils.isSelected(selected.type, item) ? 'selected' : ''}}" 
+            wx:for="{{filterData.type}}" 
+            wx:key="*this" 
+            data-category="type" 
+            data-option="{{item}}" 
+            bindtap="toggleSelection">
+        {{item}}
+      </view>
+
+    <view class="title">时间</view>
+    <!-- <view class="filter-section" wx:for="{{filterData.time}}" wx:key="*this">
+      <view class="filter-item" 
+            data-category="time" 
+            data-option="{{item}}" 
+            bindtap="selectTime" 
+            class="{{selected.time === item ? 'selected' : ''}}">
+        {{item}}
+      </view>
+    </view> -->
+    <view class="filter-section {{selected.time === item ? 'selected' : ''}}" 
+            wx:for="{{filterData.time}}" 
+            wx:key="*this" 
+            data-category="time" 
+            data-option="{{item}}" 
+            bindtap="selectTime">
+        {{item}}
+      </view>
+  </view>
+  <picker mode="date" bindchange="onDateChange">
+    <view class="filter-section margin-top">{{selected.date}}</view>
+  </picker>
+</view>

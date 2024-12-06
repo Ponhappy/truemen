@@ -1,0 +1,7 @@
+
+module.exports = {
+  isSelected: function (selected, item) {
+    // console.log(selected,item,selected && selected.indexOf(item) !== -1);
+    return selected && selected.indexOf(item) !== -1;
+  }
+};
