@@ -37,6 +37,6 @@
 <view class="map-container">
   <map id="map" subkey="{{mapSubKey}}" longitude="{{longitude}}" latitude="{{latitude}}" style="width: 100%; height: 100%;" show-location="true" enable-building="true" enable-3D="true"></map>
   <button class="location-btn" bindtap="moveToLocation">
-    <image src="../../images/icons/icon_tab_sport.png" class="location-icon"></image>
+    <image src="../../images/icons/icon_tab_sport.png" class="location-icon" mode="aspectFit"></image>
   </button>
 </view>
