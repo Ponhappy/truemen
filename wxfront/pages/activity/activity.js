@@ -4,6 +4,15 @@ Page({
    * 页面的初始数据
    */
   data: {
+    showFilterModal: true,
+    m: wx.getMenuButtonBoundingClientRect(),
+    s: wx.getSystemInfoSync(),
+    filterData: {
+      onlySee: ['活动', '群组', '我收藏的', '我参与过的', '我创建的'],
+      type: ['户外', '休闲', '文化', '美食', '拍照', '探店', '一人游', '多人行', '一日游'],
+      time: ['最远', '最近', '今天', '这一年', '这一月']
+    },
+    selectedFilters: {},
     activities: [
       {
         id: 1,
@@ -71,4 +80,21 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage() {},
+  showFilter: function () {
+    this.setData({
+      showFilterModal: !this.data.showFilterModal
+    });
+  },
+  handleConfirm: function (e) {
+    this.setData({
+      showFilterModal: false,
+      selectedFilters: e.detail
+    });
+    console.log('Selected Filters:', e.detail);
+  },
+  goToSearch: function () {
+    wx.navigateTo({
+      url: './search-content/search-content',
+    })
+  },
 });

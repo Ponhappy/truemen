@@ -66,3 +66,36 @@ body {
 .highlight {
   color: yellow;
 }
+.activity-container {
+  padding: 20px;
+}
+
+button {
+  margin-bottom: 20px;
+}
+.search-bar__form {
+  -webkit-box-flex: 1;
+  background: #eeeeef;
+  border-radius: 40rpx; /* 使用 rpx 单位 */
+  flex: auto;
+  position: relative;
+  margin-left: 20rpx; /* 左边距改为 rpx */
+  margin-right: 20rpx; /* 右边距改为 rpx */
+}
+.search-bar__box {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row;
+  padding-left: 40rpx; /* 左内边距改为 rpx */
+  /* padding-right: 120rpx;  */
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+.search-bar__input {
+  height: 100%;
+  width: 100%;
+  line-height: 100%;
+  margin-left: 10rpx; /* 左边距改为 rpx */
+}
