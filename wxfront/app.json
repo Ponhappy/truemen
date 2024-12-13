@@ -19,7 +19,8 @@
     "pages/strategy/strategy-detail/strategy-detail",
     "pages/newfolder/newfolder",
     "pages/friend/chat",
-    "pages/login/password-login/password-login"
+    "pages/login/password-login/password-login",
+    "pages/strategy/edit-guide"
   ],
   "subPackages": [
     {

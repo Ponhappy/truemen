@@ -4,6 +4,27 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/strategy/strategy-detail/strategy-detail",
+          "pathName": "pages/strategy/strategy-detail/strategy-detail",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/strategy/strategy-detail/strategy-detail",
+          "pathName": "pages/strategy/strategy-detail/strategy-detail",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/strategy/strategy-detail",
+          "pathName": "pages/strategy/strategy-detail",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/activity/activity",
           "pathName": "pages/activity/activity",
           "query": "",
@@ -26,5 +47,8 @@
         }
       ]
     }
+  },
+  "setting": {
+    "urlCheck": false
   }
 }
