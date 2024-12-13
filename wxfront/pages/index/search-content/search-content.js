@@ -4,7 +4,7 @@ Page({
     s: wx.getSystemInfoSync(), // 获取设备信息
     autoFocus: true, // 确保输入框自动获得焦点
     query: '', // 搜索框输入内容
-    historyList: ['搜索内容', '搜索内容', '搜索内容', '搜索内容', '搜索内容'], // 模拟的历史搜索数据
+    historyList: ['搜索内容'], // 模拟的历史搜索数据
     filters: {
       view: [],
       type: [],
@@ -14,11 +14,16 @@ Page({
   onReady: function () {
     this.setData({
       autoFocus: true,
-    })
+    });
+    const historyList = wx.getStorageSync('historyList') || [];
+    this.setData({
+      historyList: historyList,
+    });
   },
    // 搜索按钮点击事件或输入框确认事件
    onSearch: function () {
     const { query } = this.data;
+    
     if (query.trim() === '') return; // 如果搜索内容为空，不进行任何操作
 
     // 将新的搜索内容添加到历史记录中
@@ -37,7 +42,6 @@ Page({
     // 更新数据并保存到本地存储
     this.setData({
       historyList: historyList,
-      query: '' // 清空输入框
     });
     wx.setStorageSync('historyList', historyList);
 
@@ -120,6 +124,7 @@ Page({
    // 历史搜索项点击事件
    onHistoryItemClick: function (e) {
     const query = e.currentTarget.dataset.query;
+    console.log("this.onHistoryItemClick",query)
     this.setData({
       query: query
     });
@@ -149,5 +154,6 @@ Page({
     this.setData({
       historyList: [],
     })
+    wx.removeStorageSync('historyList'); // 从本地存储中删除历史记录
   },
 })

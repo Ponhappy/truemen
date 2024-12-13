@@ -5,7 +5,7 @@
     <view class="search-bar__form">
         <view class="search-bar__box" style="height: {{m.height}}px;">
             <icon size="{{m.height/2+1}}" type="search" style="margin-left: 20rpx;"></icon>
-            <input class="search-bar__input" focus="{{autoFocus}}" style="font-size: {{m.height/2.5}}px;" type="text" bindinput="onInput" bindconfirm="onSearch"></input>
+            <input value="{{query}}" class="search-bar__input" focus="{{autoFocus}}" style="font-size: {{m.height/2.5}}px;" type="text" bindinput="onInput" bindconfirm="onSearch" ></input>
             
         </view>
 
