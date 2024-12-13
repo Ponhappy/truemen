@@ -5,9 +5,12 @@
     <view class="search-bar__form">
         <view class="search-bar__box" style="height: {{m.height}}px;">
             <icon size="{{m.height/2+1}}" type="search" style="margin-left: 20rpx;"></icon>
-            <input class="search-bar__input" focus="{{autoFocus}}" style="font-size: {{m.height/2.5}}px;" type="text"></input>
+            <input class="search-bar__input" focus="{{autoFocus}}" style="font-size: {{m.height/2.5}}px;" type="text" bindinput="onInput" bindconfirm="onSearch"></input>
+            
         </view>
+
     </view>
+    <text class="search-bar__button" bindtap="onSearch">搜索</text>
 </view>
 <view class="history-search" style="padding: 20rpx;">
     <view style="display: flex; justify-content: space-between; align-items: center;">
@@ -16,7 +19,7 @@
     </view>
     <view class="history-list" style="margin-top: 10rpx; display: flex; flex-wrap: wrap;">
         <block wx:for="{{historyList}}" wx:key="index">
-            <text class="history-item">{{item}}</text>
+          <text class="history-item" data-query="{{item}}" bindtap="onHistoryItemClick">{{item}}</text>
         </block>
     </view>
 </view>

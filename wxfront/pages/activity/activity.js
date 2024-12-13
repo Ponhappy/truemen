@@ -94,7 +94,7 @@ Page({
   },
   goToSearch: function () {
     wx.navigateTo({
-      url: './search-content/search-content',
+      url: '/pages/index/search-content/search-content',
     })
   },
 });
