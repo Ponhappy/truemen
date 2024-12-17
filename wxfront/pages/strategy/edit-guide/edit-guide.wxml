@@ -1,0 +1,26 @@
+<view class="container">
+  <input
+    placeholder="标题"
+    value="{{ guide.title }}"
+    bindinput="onTitleInput"
+  />
+  <textarea
+    placeholder="描述"
+    value="{{ guide.description }}"
+    bindinput="onDescriptionInput"
+  />
+
+  <!-- 显示天数 -->
+  <view class="days">
+    <block wx:for="{{ guide.days }}" wx:key="id">
+      <view class="day">Day {{ item.dayNumber }}</view>
+    </block>
+  </view>
+
+  <!-- 增加一天按钮 -->
+  <button bindtap="onAddDay">增加一天</button>
+
+  <!-- 保存和取消按钮 -->
+  <button bindtap="onSaveGuide">保存</button>
+  <button bindtap="onCancelEdit">取消</button>
+</view>

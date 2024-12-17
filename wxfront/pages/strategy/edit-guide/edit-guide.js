@@ -1,61 +1,15 @@
 Page({
   data: {
-    guideId: null, // 攻略ID
-    guide: null, // 攻略详情
-    isOwner: false, // 是否是攻略所有者
-    isEditing: false, // 是否处于编辑模式
+    guideId: null,
+    guide: null,
   },
 
-  // 页面加载时获取攻略详情
   onLoad(options) {
-    const { id } = options;
-    if (!id) {
-      wx.showToast({
-        title: '缺少攻略ID',
-        icon: 'none',
-      });
-      return;
-    }
-    this.setData({ guideId: id });
-    this.fetchGuideDetail(id);
-  },
-
-  // 获取攻略详情
-  fetchGuideDetail(guideId) {
-    wx.request({
-      url: `http://localhost:8080/api/v1/guides/${guideId}`, // 本地后端地址
-      method: 'GET',
-      success: (res) => {
-        if (res.statusCode === 200) {
-          const guide = res.data;
-          const isOwner = this.checkOwner(guide); // 检查是否是攻略所有者
-          this.setData({ guide, isOwner });
-        } else {
-          wx.showToast({
-            title: '获取攻略详情失败',
-            icon: 'none',
-          });
-        }
-      },
-      fail: (err) => {
-        console.error('网络请求失败', err);
-        wx.showToast({
-          title: '网络请求失败',
-          icon: 'none',
-        });
-      },
+    const { id, guide } = options;
+    this.setData({
+      guideId: id,
+      guide: JSON.parse(guide),
     });
-  },
-
-  // 检查是否是攻略所有者
-  checkOwner(guide) {
-    const currentUserId = wx.getStorageSync('userId'); // 假设当前用户的 ID 存储在本地
-    return guide.ownerId === currentUserId;
-  },
-
-  // 进入编辑模式
-  onEditGuide() {
-    this.setData({ isEditing: true });
   },
 
   // 保存编辑后的攻略
@@ -71,8 +25,7 @@ Page({
             title: '保存成功',
             icon: 'success',
           });
-          this.setData({ isEditing: false }); // 退出编辑模式
-          this.fetchGuideDetail(guideId); // 重新获取攻略详情
+          wx.navigateBack();
         } else {
           wx.showToast({
             title: '保存失败',
@@ -80,8 +33,7 @@ Page({
           });
         }
       },
-      fail: (err) => {
-        console.error('网络请求失败', err);
+      fail: () => {
         wx.showToast({
           title: '网络请求失败',
           icon: 'none',
@@ -120,9 +72,28 @@ Page({
     });
   },
 
-  // 取消编辑
-  onCancelEdit() {
-    this.setData({ isEditing: false });
+  // 获取攻略详情
+  fetchGuideDetail(guideId) {
+    wx.request({
+      url: `http://localhost:8080/api/v1/guides/${guideId}`, // 本地后端地址
+      method: 'GET',
+      success: (res) => {
+        if (res.statusCode === 200) {
+          this.setData({ guide: res.data });
+        } else {
+          wx.showToast({
+            title: '获取攻略详情失败',
+            icon: 'none',
+          });
+        }
+      },
+      fail: () => {
+        wx.showToast({
+          title: '网络请求失败',
+          icon: 'none',
+        });
+      },
+    });
   },
 
   // 监听标题输入

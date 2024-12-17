@@ -1,0 +1,25 @@
+.container {
+  padding: 20rpx;
+}
+
+input,
+textarea {
+  width: 100%;
+  margin-bottom: 20rpx;
+  padding: 10rpx;
+  border: 1rpx solid #ccc;
+  border-radius: 5rpx;
+}
+
+.days {
+  margin-top: 20rpx;
+}
+
+.day {
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+
+button {
+  margin-top: 20rpx;
+}
