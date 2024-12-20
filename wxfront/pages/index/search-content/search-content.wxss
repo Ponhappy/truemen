@@ -24,6 +24,10 @@
   padding: 0 20rpx;
   flex: 1;
 }
+.search-bar__button{
+  width: 100rpx;
+  color:#87CEEB;
+}
 
 /* 输入框样式 */
 .search-bar__input {

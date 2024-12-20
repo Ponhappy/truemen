@@ -4,8 +4,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/strategy/strategy-detail/strategy-detail",
-          "pathName": "pages/strategy/strategy-detail/strategy-detail",
+          "name": "pages/index/search-content/search-content",
+          "pathName": "pages/index/search-content/search-content",
           "query": "",
           "launchMode": "default",
           "scene": null
