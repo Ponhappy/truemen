@@ -1,13 +1,24 @@
 <!--pages/activity/activity.wxml-->
-<view style="height:{{m.height}}px;padding-top:{{s.statusBarHeight+(m.top-s.statusBarHeight)}}px;padding-bottom:{{(m.top-s.statusBarHeight)}}px;width:{{m.left}}px;">
-  <view bindtap="goToSearch" class="search-bar__form">
-    <view class="search-bar__box" style="height: {{m.height}}px;">
-      <icon size="{{m.height/2+1}}" type="search"></icon>
-      <input class="search-bar__input" disabled="true" placeholder="搜索地点、活动、你感兴趣的地方" style="font-size: {{m.height/2.5}}px" type="text"></input>
-    </view>
-  </view>
+<view  wx:if="{{!showFilterModal}}" style="height:{{m.height}}px;padding-top:{{s.statusBarHeight+(m.top-s.statusBarHeight)}}px;padding-bottom:{{(m.top-s.statusBarHeight)}}px;width:{{m.left}}px;" class="top-tab">
+ <view  class="search-bg" bindtap="goToSearch">
+  <image class="search-icon"  src="/images/icons/search.png"></image>
+ </view>
+ <view  class="search-bg" bindtap="showFilter">
+  <image class="search-icon"src="/images/icons/filter.png"></image>
+ </view>
 </view>
-<button bindtap="showFilter">点击过滤器</button>
+
+<view  wx:if="{{showFilterModal}}" style="height:{{m.height}}px;padding-top:{{s.statusBarHeight+(m.top-s.statusBarHeight)}}px;padding-bottom:{{(m.top-s.statusBarHeight)}}px;width:{{m.left}}px;" class="top-tab">
+ <view  class="search-text" bindtap="goToSearch">
+  完成
+  <image  class="icon" src="/images/icons/downtri.png"></image>
+ </view>
+ <view  class="search-text" bindtap="showFilter">
+  清空
+  <image  class="icon" src="/images/icons/close.png" ></image>
+ </view>
+</view>
+
   <filter wx:if="{{showFilterModal}}" 
           filter-data="{{filterData}}" 
           bind:confirm="handleConfirm"></filter>

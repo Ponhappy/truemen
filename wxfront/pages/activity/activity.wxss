@@ -99,3 +99,40 @@ button {
   line-height: 100%;
   margin-left: 10rpx; /* 左边距改为 rpx */
 }
+.search-bg {
+  width: 64rpx;    /* 设置宽度 */
+  height: 64rpx;   /* 设置高度 */
+  border-radius: 50%;
+  background-color: #ccc; /* 灰色底色 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left :32rpx;
+  color:white;
+  font-size: 28rpx;
+}
+.search-text {
+  width: 126rpx;    /* 设置宽度 */
+  height: 64rpx;   /* 设置高度 */
+  border-radius: 200rpx;
+  background-color: #ccc; /* 灰色底色 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left :32rpx;
+  color:white;
+  font-size: 28rpx;
+  gap:6rpx;
+}
+.search-icon {
+  width: 32rpx;    /* 设置宽度 */
+  height: 32rpx;   /* 设置高度 */
+}
+.top-tab{
+  display: flex;
+  flex-direction: row;
+}
+.icon{
+  height: 18rpx;
+  width: 18rpx;
+}
